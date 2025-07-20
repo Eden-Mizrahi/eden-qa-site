@@ -1,0 +1,380 @@
+<html>
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <title>Eden Mizrahi – QA Engineer</title> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+
+    * { margin:0; padding:0; box-sizing: border-box; }
+    html, body { height: 100%; font-family: "Segoe UI", Tahoma, sans-serif; }
+
+    body {
+      --bg-color: #fff;
+      --text-color: #333;
+      --nav-bg: rgba(255, 255, 255, 0.9);
+      --nav-text: #333;
+      --btn-bg: #b30059;
+      --btn-hover-bg: #900048;
+      --btn-text: #fff;
+      --link-hover-color: #ffc0cb;
+      --link-hover-bg: rgba(255, 255, 255, 0.2);
+
+      background: url(eden.jpg) center/cover fixed;
+      color: var(--text-color);
+      position: relative;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark-mode {
+      --bg-color: #222;
+      --text-color: #eee;
+      --nav-bg: rgba(34, 34, 34, 0.9);
+      --nav-text: #eee;
+      --btn-bg: #b30059;
+      --btn-hover-bg: #900048;
+      --btn-text: #fff;
+      --link-hover-color: #ffc0cb;
+      --link-hover-bg: rgba(255, 255, 255, 0.2);
+
+      background-color: #222;
+      color: var(--text-color);
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: var(--nav-bg);
+      display: flex;
+      justify-content: center;
+      padding: 12px 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+
+    nav a {
+      color: var(--nav-text);
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+      transition: background-color 0.3s, color 0.3s;
+      font-size: 1.1em;
+    }
+
+    nav a:hover {
+      color: var(--btn-text);
+      background-color: var(--btn-bg);
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1.1em;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+      transition: background 0.3s, transform 0.2s;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .btn-download:hover {
+      background: var(--btn-hover-bg);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding: 0 20px;
+      margin-top: 60px; /* nav height approx */
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      color: #b30059;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    }
+    .hero p {
+      color: #FFFFFF;
+      font-size: 1.2em;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 40px 20px;
+      background: rgba(255,255,255,0.9);
+      color: #333;
+      border-radius: 8px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .container.dark-mode {
+      background: rgba(50, 50, 50, 0.9);
+      color: #eee;
+    }
+    section + section { margin-top: 30px; }
+    section h2 {
+      border-bottom: 2px solid #b30059;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+      color: #900048;
+    }
+    .contact a {
+      color: #b30059;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    img.inline {
+      width: 100%;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      padding: 20px 0;
+      color: #333;
+    }
+    @media (max-width:600px) {
+      .hero h1 { font-size: 2em; }
+      .hero p { font-size: 1em; }
+      nav a {
+        margin: 0 10px;
+        font-size: 1em;
+        padding: 6px 10px;
+      }
+    }
+    /* Dark mode footer and links */
+    body.dark-mode footer {
+      color: #eee;
+    }
+    body.dark-mode .contact a {
+      color: #ffb6d9;
+    }
+
+    /* ====== Gallery styles ====== */
+    .gallery img {
+      max-width: 300px;
+      height: auto;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: transform 0.2s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* ====== Modal styles ====== */
+    #modalOverlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    #modalOverlay.active {
+      display: flex;
+    }
+    #modalContent {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+    #modalContent img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 12px;
+    }
+    #modalClose {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: #b30059;
+      border: none;
+      color: white;
+      font-size: 1.5em;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0;
+    }
+  </style>
+
+</head>
+<body>
+
+  <nav>
+    <a href="#about">About Me</a>
+    <a href="#experience">Experience & Education</a>
+	<a href="#whyqa">Why QA?</a>
+    <a href="#prague">Prague Trip</a>
+    <a href="#contact">Contact</a>
+    <button id="toggleDarkMode" class="btn-download" style="margin-left:20px; font-size: 0.9em;">Switch Dark Mode</button>
+  </nav>
+
+  <div class="hero">
+    <div>
+      <h1>Eden Mizrahi – QA Engineer</h1>
+      <p>27, from Holon – Former banker turned QA enthusiast</p>
+    </div>
+  </div>
+
+  <div class="container" id="contentContainer">
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hi everyone, I’m Eden Mizrahi, 27 years old from Holon.
+I worked for 6 years at Bank Hapoalim as a branch banker, providing various banking services such as loans, credit lines, and guarantees. In 2023, I was honored as the branch’s outstanding employee. After completing my contract, I decided it was time to pursue a field that truly interests me — Quality Assurance (QA).</p>
+    </section>
+
+    <section id="experience">
+      <h2>Experience & Education</h2>
+<ul>
+  <li>6 years in banking – expert in customer service, systems, and meeting goals with precision.</li>
+  <li>IDF service with honors – leadership, responsibility, and performance under pressure.</li>
+  <li>Currently in QA training – manual testing, test cases, bug reports, and quality processes.</li>
+</ul>
+      
+    </section>
+	<section id="whyqa">
+  <h2>Why QA?</h2>
+  <p>
+QA feels like the perfect fit for me — I love solving problems, spotting the small stuff, and making sure things just work.
+With a background in banking, I'm used to precision, responsibility, and working under pressure.
+I'm naturally curious, detail-oriented, and always eager to improve.
+<br>For me,QA isn’t just a job — it’s where I belong.  </p>
+  <p>
+  
+  </p>
+</section>
+ 
+
+    <section id="prague">
+      <h2>Prague Trip</h2>
+      <p>This year I visited Prague — a beautiful city full of history, culture, and unforgettable sights. Below are some photos I took during my trip.</p>
+      <br>
+	  </br>
+      <div class="gallery">
+        <img src="eden6.jpg" alt="Prague 1">
+        <img src="eden4.jpg" alt="Prague 3">
+        <img src="eden1.jpg" alt="Prague 4">
+        <img src="eden5.jpg" alt="Prague 5">
+        <img src="eden3.jpg" alt="Prague 6">
+        <img src="eden7.jpg" alt="Prague 7">
+      </div>
+
+      <a href="eden_resume.pdf" download class="btn-download">Download Resume</a>
+    </section>
+	<br>
+	</br>
+  <h2>Contact Me</h2>
+  <p>📧 Email: <a href="mailto:edenmizrahi45@gmail.com">edenmizrahi45@gmail.com</a></p>
+  <p>📞 Phone: <a href="tel:0504500705">050-450-0705</a></p>
+  <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/eden-mizrahi" target="_blank" rel="noopener noreferrer">/in/eden-mizrahi</a></p>
+
+  <div class="contact-icons" style="margin-top: 30px; display: flex; justify-content: center; gap: 30px;">
+    <a href="mailto:edenmizrahi45@gmail.com" title="Send Email" class="icon" aria-label="Email" style="font-size: 36px; color: #555; transition: color 0.3s ease;">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <a href="tel:0504500705" title="Call Phone" class="icon" aria-label="Phone" style="font-size: 36px; color: #555; transition: color 0.3s ease;">
+      <i class="fas fa-phone"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/eden-mizrahi" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile" class="icon linkedin" aria-label="LinkedIn" style="font-size: 36px; color: #0077b5; transition: color 0.3s ease;">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </div>
+</section>
+
+    <footer>
+      &copy; 2025 Eden Mizrahi – QA Engineer
+    </footer>
+  </div>
+
+  <!-- Modal for image preview -->
+  <div id="modalOverlay">
+    <div id="modalContent">
+      <button id="modalClose" aria-label="Close">&times;</button>
+      <img src="" alt="Enlarged image" id="modalImage">
+    </div>
+  </div>
+
+  <script>
+    const toggleBtn = document.getElementById('toggleDarkMode');
+    const body = document.body;
+    const container = document.getElementById('contentContainer');
+
+    // Load saved mode
+    if(localStorage.getItem('darkMode') === 'true') {
+      body.classList.add('dark-mode');
+      container.classList.add('dark-mode');
+      toggleBtn.textContent = 'Switch Light Mode';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      container.classList.toggle('dark-mode');
+
+      if(body.classList.contains('dark-mode')){
+        toggleBtn.textContent = 'Switch Light Mode';
+        localStorage.setItem('darkMode', 'true');
+      } else {
+        toggleBtn.textContent = 'Switch Dark Mode';
+        localStorage.setItem('darkMode', 'false');
+      }
+    });
+
+    // Modal functionality
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalImage = document.getElementById('modalImage');
+    const modalClose = document.getElementById('modalClose');
+
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        modalImage.src = img.src;
+        modalImage.alt = img.alt;
+        modalOverlay.classList.add('active');
+      });
+    });
+
+    modalClose.addEventListener('click', () => {
+      modalOverlay.classList.remove('active');
+      modalImage.src = '';
+      modalImage.alt = '';
+    });
+
+    // Close modal when clicking outside the image
+    modalOverlay.addEventListener('click', (e) => {
+      if(e.target === modalOverlay) {
+        modalOverlay.classList.remove('active');
+        modalImage.src = '';
+        modalImage.alt = '';
+      }
+    });
+  </script>
+
+</body>
+</html>
