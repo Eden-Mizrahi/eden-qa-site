@@ -1,13 +1,11 @@
-<html>
-	
+<html
 <!DOCTYPE html>
 <html lang="he">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- הוספתי כאן -->
-  <title>Eden Mizrahi – QA Engineer</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <title>Eden Mizrahi – QA Engineer</title> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
+
     * { margin:0; padding:0; box-sizing: border-box; }
     html, body { height: 100%; font-family: "Segoe UI", Tahoma, sans-serif; }
 
@@ -53,7 +51,6 @@
       padding: 12px 0;
       z-index: 100;
       box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-      flex-wrap: nowrap; /* ברירת מחדל */
     }
 
     nav a {
@@ -154,41 +151,12 @@
       color: #333;
     }
     @media (max-width:600px) {
-      nav {
-        flex-wrap: wrap; /* מאפשר מעבר שורות */
-        justify-content: center;
-      }
-      nav a {
-        margin: 5px 10px;
-        flex-basis: 100%;
-        text-align: center;
-        font-size: 1em;
-        padding: 6px 10px;
-      }
-      #toggleDarkMode {
-        margin-top: 10px;
-        flex-basis: 100%;
-        font-size: 0.9em;
-      }
       .hero h1 { font-size: 2em; }
       .hero p { font-size: 1em; }
-      .container {
-        max-width: 95%;
-        padding: 20px 15px;
-      }
-
-      .gallery {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-      }
-
-      .gallery img {
-        max-width: 45vw;
-        height: auto;
-        border-radius: 8px;
-        transition: transform 0.2s ease;
+      nav a {
+        margin: 0 10px;
+        font-size: 1em;
+        padding: 6px 10px;
       }
     }
     /* Dark mode footer and links */
@@ -263,7 +231,7 @@
   <nav>
     <a href="#about">About Me</a>
     <a href="#experience">Experience & Education</a>
-    <a href="#whyqa">Why QA?</a>
+	<a href="#whyqa">Why QA?</a>
     <a href="#prague">Prague Trip</a>
     <a href="#contact">Contact</a>
     <button id="toggleDarkMode" class="btn-download" style="margin-left:20px; font-size: 0.9em;">Switch Dark Mode</button>
@@ -285,28 +253,31 @@ I worked for 6 years at Bank Hapoalim as a branch banker, providing various bank
 
     <section id="experience">
       <h2>Experience & Education</h2>
-      <ul>
-        <li>6 years in banking – expert in customer service, systems, and meeting goals with precision.</li>
-        <li>IDF service with honors – leadership, responsibility, and performance under pressure.</li>
-        <li>Currently in QA training – manual testing, test cases, bug reports, and quality processes.</li>
-      </ul>
+<ul>
+  <li>6 years in banking – expert in customer service, systems, and meeting goals with precision.</li>
+  <li>IDF service with honors – leadership, responsibility, and performance under pressure.</li>
+  <li>Currently in QA training – manual testing, test cases, bug reports, and quality processes.</li>
+</ul>
+      
     </section>
-
-    <section id="whyqa">
-      <h2>Why QA?</h2>
-      <p>
-        QA feels like the perfect fit for me — I love solving problems, spotting the small stuff, and making sure things just work.
-        With a background in banking, I'm used to precision, responsibility, and working under pressure.
-        I'm naturally curious, detail-oriented, and always eager to improve.
-        <br>For me,QA isn’t just a job — it’s where I belong.
-      </p>
-    </section>
+	<section id="whyqa">
+  <h2>Why QA?</h2>
+  <p>
+QA feels like the perfect fit for me — I love solving problems, spotting the small stuff, and making sure things just work.
+With a background in banking, I'm used to precision, responsibility, and working under pressure.
+I'm naturally curious, detail-oriented, and always eager to improve.
+<br>For me,QA isn’t just a job — it’s where I belong.  </p>
+  <p>
+  
+  </p>
+</section>
+ 
 
     <section id="prague">
       <h2>Prague Trip</h2>
       <p>This year I visited Prague — a beautiful city full of history, culture, and unforgettable sights. Below are some photos I took during my trip.</p>
       <br>
-      </br>
+	  </br>
       <div class="gallery">
         <img src="eden6.jpg" alt="Prague 1">
         <img src="eden4.jpg" alt="Prague 3">
@@ -318,27 +289,25 @@ I worked for 6 years at Bank Hapoalim as a branch banker, providing various bank
 
       <a href="eden_resume.pdf" download class="btn-download">Download Resume</a>
     </section>
+	<br>
+	</br>
+  <h2>Contact Me</h2>
+  <p>📧 Email: <a href="mailto:edenmizrahi45@gmail.com">edenmizrahi45@gmail.com</a></p>
+  <p>📞 Phone: <a href="tel:0504500705">050-450-0705</a></p>
+  <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/eden-mizrahi" target="_blank" rel="noopener noreferrer">/in/eden-mizrahi</a></p>
 
-    <br>
-    </br>
-    <section id="contact">
-      <h2>Contact Me</h2>
-      <p>📧 Email: <a href="mailto:edenmizrahi45@gmail.com">edenmizrahi45@gmail.com</a></p>
-      <p>📞 Phone: <a href="tel:0504500705">050-450-0705</a></p>
-      <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/eden-mizrahi" target="_blank" rel="noopener noreferrer">/in/eden-mizrahi</a></p>
-
-      <div class="contact-icons" style="margin-top: 30px; display: flex; justify-content: center; gap: 30px;">
-        <a href="mailto:edenmizrahi45@gmail.com" title="Send Email" class="icon" aria-label="Email" style="font-size: 36px; color: #555; transition: color 0.3s ease;">
-          <i class="fas fa-envelope"></i>
-        </a>
-        <a href="tel:0504500705" title="Call Phone" class="icon" aria-label="Phone" style="font-size: 36px; color: #555; transition: color 0.3s ease;">
-          <i class="fas fa-phone"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/eden-mizrahi" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile" class="icon linkedin" aria-label="LinkedIn" style="font-size: 36px; color: #0077b5; transition: color 0.3s ease;">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </div>
-    </section>
+  <div class="contact-icons" style="margin-top: 30px; display: flex; justify-content: center; gap: 30px;">
+    <a href="mailto:edenmizrahi45@gmail.com" title="Send Email" class="icon" aria-label="Email" style="font-size: 36px; color: #555; transition: color 0.3s ease;">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <a href="tel:0504500705" title="Call Phone" class="icon" aria-label="Phone" style="font-size: 36px; color: #555; transition: color 0.3s ease;">
+      <i class="fas fa-phone"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/eden-mizrahi" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile" class="icon linkedin" aria-label="LinkedIn" style="font-size: 36px; color: #0077b5; transition: color 0.3s ease;">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </div>
+</section>
 
     <footer>
       &copy; 2025 Eden Mizrahi – QA Engineer
@@ -359,5 +328,53 @@ I worked for 6 years at Bank Hapoalim as a branch banker, providing various bank
     const container = document.getElementById('contentContainer');
 
     // Load saved mode
-    if(localStorage.getItem('darkMode') ===
+    if(localStorage.getItem('darkMode') === 'true') {
+      body.classList.add('dark-mode');
+      container.classList.add('dark-mode');
+      toggleBtn.textContent = 'Switch Light Mode';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      container.classList.toggle('dark-mode');
+
+      if(body.classList.contains('dark-mode')){
+        toggleBtn.textContent = 'Switch Light Mode';
+        localStorage.setItem('darkMode', 'true');
+      } else {
+        toggleBtn.textContent = 'Switch Dark Mode';
+        localStorage.setItem('darkMode', 'false');
+      }
+    });
+
+    // Modal functionality
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalImage = document.getElementById('modalImage');
+    const modalClose = document.getElementById('modalClose');
+
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        modalImage.src = img.src;
+        modalImage.alt = img.alt;
+        modalOverlay.classList.add('active');
+      });
+    });
+
+    modalClose.addEventListener('click', () => {
+      modalOverlay.classList.remove('active');
+      modalImage.src = '';
+      modalImage.alt = '';
+    });
+
+    // Close modal when clicking outside the image
+    modalOverlay.addEventListener('click', (e) => {
+      if(e.target === modalOverlay) {
+        modalOverlay.classList.remove('active');
+        modalImage.src = '';
+        modalImage.alt = '';
+      }
+    });
+  </script>
+
+</body>
 </html>
